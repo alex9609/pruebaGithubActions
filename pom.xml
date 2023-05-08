@@ -37,7 +37,7 @@
 	
 	<distributionManagement>
 	    <repository>
-		<id>repositorio-id</id>
+		<id>repositorio-central-actions</id>
 		<name>Repositorio nuevo</name>
 		<url>https://github.com/alex9609/pruebaGithubActions.git</url>
 	    </repository>
