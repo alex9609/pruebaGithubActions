@@ -15,4 +15,4 @@ jobs:
       run: sudo apt-get install curl
       
     - name: Perform HTTP Post
-      run: curl -X POST http://localhost:8081/prueba -d '{"mensaje":"Hola desde github"}'
+      run: curl -X POST http://127.0.0.1:8081/prueba -d '{"mensaje":"Hola desde github"}'
