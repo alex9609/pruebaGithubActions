@@ -14,7 +14,7 @@ jobs:
       - run: |
           echo "Making a POST request to the API..."
           response=$(curl -X POST -H "Content-Type: application/json" -d '{"name": "Bard"}' https://api.github.com/users)
-          echo response
+          echo $(curl -X POST -H "Content-Type: application/json" -d '{"name": "Bard"}' https://api.github.com/users)
       - run: |
           echo "Parsing the JSON response..."
           data=$(echo "$response" | jq -r .)
