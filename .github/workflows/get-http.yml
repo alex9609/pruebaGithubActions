@@ -1,9 +1,6 @@
 name: Get JSON Response
 
-on:
-  push:
-    branches:
-      - main
+on: [workflow_dispatch]
 
 jobs:
   get-json-response:
@@ -16,6 +13,7 @@ jobs:
           yarn install
       - run: |
           echo "Making a GET request to the API..."
+          echo $(curl -s https://api.github.com/users/bard)
           response=$(curl -s https://api.github.com/users/bard)
       - run: |
           echo "Parsing the JSON response..."
