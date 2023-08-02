@@ -1,4 +1,4 @@
-name: Post api
+name: Self hosted runner
 
 on: workflow_dispatch
 
