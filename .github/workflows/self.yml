@@ -1,0 +1,10 @@
+name: Post api
+
+on: workflow_dispatch
+
+jobs:
+  post:
+
+    runs-on: self-hosted
+    steps:
+      - run: java --version
