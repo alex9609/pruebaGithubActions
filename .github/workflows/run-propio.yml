@@ -8,3 +8,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: java --version
+      - run: |
+          cd C:\
+          ls
