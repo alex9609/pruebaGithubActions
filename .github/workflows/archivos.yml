@@ -6,7 +6,8 @@ name: Creacion de archivos
 on: workflow_dispatch
 
 jobs:
-  example-job:
+  build:
+    runs-on: ubuntu-latest
     name: Save output
     steps:
       - shell: bash
