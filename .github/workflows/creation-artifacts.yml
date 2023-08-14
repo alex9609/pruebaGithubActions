@@ -30,4 +30,4 @@ jobs:
       with:
         name: artifact
         #path: staging
-        path: target/
+        path: target/my-app-jar.jar
