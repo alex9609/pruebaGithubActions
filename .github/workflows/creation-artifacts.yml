@@ -25,16 +25,9 @@ jobs:
     - name: Build with Maven
       run: mvn --batch-mode --update-snapshots verify
     - run: mkdir staging && cp target/*.jar staging
-    - run: ls
-    - uses: actions/upload-artifact@v3
-      with:
-        name: artifact
-        path: src/target/
 
-    - name: Move Artifacts to Artifacts folder
-      run: mv staging artifacts
+    - name: Revisando carpetas
+      run: ls
+      
 
-    - name: Verificando carpetas
-      run: cd .. && ls
-    - run: ls
 
