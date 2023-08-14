@@ -31,7 +31,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artifact
-          path: staging/demo-0.0.1-SNAPSHOT.jar
+          branch: main
+          #path: staging/demo-0.0.1-SNAPSHOT.jar
 
   job_2:
     needs: job_1
@@ -43,7 +44,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: artifact
-          destination: new-artifacts
 
       - name: Validando carpetas
         run: ls
