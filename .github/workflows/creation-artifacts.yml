@@ -42,7 +42,7 @@ jobs:
 
     - name: Subir al repositorio
       run: |
-        git add staging/staging/demo-0.0.1-SNAPSHOT.jar
+        git add staging/demo-0.0.1-SNAPSHOT.jar
         git commit -m "Add artifact to repository"
     
 
