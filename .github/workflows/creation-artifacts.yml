@@ -3,7 +3,7 @@
 
 name: Creacion de artefactos y subirlos al mismo repo
 
-on: [push]
+on: workflow_dispatch
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
     - name: Build with Maven
       run: mvn --batch-mode --update-snapshots verify
     - run: mkdir staging && cp target/*.jar staging
-    - run: dir
+    - run: ls
     - uses: actions/upload-artifact@v3
       with:
         name: artifact
@@ -36,3 +36,8 @@ jobs:
 
     - name: Move Artifacts to Artifacts folder
       run: mv staging artifacts
+
+    - name: Verificando carpetas
+    - run: ls
+    - run: cd ..
+    - run: ls
