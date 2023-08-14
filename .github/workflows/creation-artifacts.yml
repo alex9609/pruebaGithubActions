@@ -29,7 +29,20 @@ jobs:
     - name: Revisando carpetas
       run: cd staging && ls
 
-      
+    - name: Upload Artifact to Repository
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifact
+        path: staging/demo-0.0.1-SNAPSHOT.jar
+
+    - name: Move Artifact to Repository
+      run: |
+        mkdir -p artefactos
+        mv staging/demo-0.0.1-SNAPSHOT.jar artefactos
+
+
+
+
 
 
 
