@@ -1,0 +1,13 @@
+name: Self hosted runner
+
+on: workflow_dispatch
+
+jobs:
+  post:
+
+    runs-on: self-hosted
+    steps:
+      - run: java --version
+      - run: |
+          cd C:\
+          ls

@@ -1,0 +1,24 @@
+name: Get JSON Response
+
+on: [workflow_dispatch]
+
+jobs:
+  get-json-response:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: |
+          echo "Installing dependencies..."
+          yarn install
+      - run: |
+          echo "Making a GET request to the API..."
+          echo $(curl -s https://api.github.com/users/bard)
+          response=$(curl -s https://api.github.com/users/bard)
+      - run: |
+          echo "Parsing the JSON response..."
+          data=$(echo "$response" | jq -r .)
+      - run: |
+          echo "Printing the JSON response..."
+          echo "$data"
+
