@@ -39,4 +39,5 @@ jobs:
 
     - name: Verificando carpetas
       run: cd .. && ls
+    - run: ls
 
