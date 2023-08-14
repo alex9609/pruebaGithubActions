@@ -16,7 +16,7 @@ jobs:
         run: echo "Contenido de la versión" > versioned-folder/version.txt
 
       - name: Subir artefactos
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: versioned-artifacts
           path: versioned-folder

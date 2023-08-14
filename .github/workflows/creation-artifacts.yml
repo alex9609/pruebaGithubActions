@@ -51,11 +51,6 @@ jobs:
         run: cd .. && ls
 
 
-      - name: Revision Github
-        run: git status
-
-
-
 
 
 
