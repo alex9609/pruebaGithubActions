@@ -3,7 +3,7 @@
 
 name: Creacion de artefactos y subirlos al mismo repo
 
-on: workflow_dispatch
+on: [push]
 
 jobs:
   build:
