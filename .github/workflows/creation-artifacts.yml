@@ -31,8 +31,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artifact
-          branch: main
-          #path: staging/demo-0.0.1-SNAPSHOT.jar
+          path: staging/demo-0.0.1-SNAPSHOT.jar
 
   job_2:
     needs: job_1
@@ -47,6 +46,9 @@ jobs:
 
       - name: Validando carpetas
         run: ls
+
+      - name: Revision Github
+        run: git status
 
 
 
