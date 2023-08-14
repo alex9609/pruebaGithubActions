@@ -38,5 +38,5 @@ jobs:
       run: mv staging artifacts
 
     - name: Verificando carpetas
-    - run: ls
+      run: ls
 
