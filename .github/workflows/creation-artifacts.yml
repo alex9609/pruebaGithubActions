@@ -47,6 +47,10 @@ jobs:
       - name: Validando carpetas
         run: ls
 
+      - name: Validación de carpetas
+        run: cd .. && ls
+
+
       - name: Revision Github
         run: git status
 
