@@ -43,6 +43,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: artifact
+          destination: new-artifacts
+
+      - name: Validando carpetas
+        run: ls
 
 
 
