@@ -37,7 +37,3 @@ jobs:
     - name: Move Artifacts to Artifacts folder
       run: mv staging artifacts
 
-    - name: Verificando carpetas
-    - run: ls
-    - run: cd ..
-    - run: ls
