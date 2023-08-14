@@ -34,7 +34,8 @@ jobs:
           path: staging/demo-0.0.1-SNAPSHOT.jar
 
   job_2:
-    name: Creando y cargando artefactos
+    needs: job_1
+    name: Descargando artefactos
     runs-on: ubuntu-latest
 
     steps:
@@ -42,7 +43,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: artifact
-          path: staging/demo-0.0.1-SNAPSHOT.jar
 
 
 
