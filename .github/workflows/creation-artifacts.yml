@@ -25,7 +25,24 @@ jobs:
 
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
+      - run: mkdir staging && cp target/*.jar staging
 
+      - name: Upload Artifact to Repository
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: staging/demo-0.0.1-SNAPSHOT.jar
+
+  job_2:
+    name: Creando y cargando artefactos
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Artifact to Repository
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
+          path: staging/demo-0.0.1-SNAPSHOT.jar
 
 
 
