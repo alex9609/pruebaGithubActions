@@ -13,7 +13,4 @@ jobs:
         tar -xzvf apache-ant-1.7.1-bin.tar.gz
         export ANT_HOME=$PWD/apache-ant-1.7.1
         export PATH=$PATH:$ANT_HOME/bin
-    
-    - name: Build with Ant
-      run: ant -version
-
+        ant -v
