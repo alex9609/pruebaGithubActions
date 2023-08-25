@@ -1,0 +1,27 @@
+name: Build with Ant 1.7
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    
+    - name: Set up Java
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '1.8'
+    
+    - name: Download and install Ant 1.7
+      run: |
+        wget https://archive.apache.org/dist/ant/binaries/apache-ant-1.7.1-bin.tar.gz
+        tar -xzvf apache-ant-1.7.1-bin.tar.gz
+        export ANT_HOME=$PWD/apache-ant-1.7.1
+        export PATH=$PATH:$ANT_HOME/bin
+    
+    - name: Build with Ant
+      run: ant your-build-target
