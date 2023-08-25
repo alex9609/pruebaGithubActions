@@ -15,4 +15,4 @@ jobs:
         export PATH=$PATH:$ANT_HOME/bin
     
     - name: Build with Ant
-      run: ant your-build-target
+      run: ant -v
