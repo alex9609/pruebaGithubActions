@@ -1,0 +1,55 @@
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
+# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+
+name: Creacion de artefactos y subirlos al mismo repo
+
+#on: [push]
+on: workflow_dispatch
+
+jobs:
+  job_1:
+    name: Creando y cargando artefactos
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots verify
+      - run: mkdir staging && cp target/*.jar staging
+
+      - name: Upload Artifact to Repository
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: staging/demo-0.0.1-SNAPSHOT.jar
+
+  job_2:
+    needs: job_1
+    name: Descargando artefactos
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Artifact to Repository
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
+
+      - name: Validando carpetas
+        run: ls
+
+      - name: Validación de carpetas
+        run: cd .. && ls
+
+
+
+
