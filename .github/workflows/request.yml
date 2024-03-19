@@ -1,0 +1,51 @@
+name: Request Jira
+on: 
+ push:
+  branches:
+  - pruebaExitCode
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Sending request
+        run: | 
+            yes | sudo apt-get install jq
+
+            response=$(curl --request POST \
+            --url 'https://nuamexchange.atlassian.net/rest/api/3/issue/431/comment' \
+            --user 'alexander.rodriguez@nuamx.com:token' \
+            --header 'Accept: application/json' \
+            --header 'Content-Type: application/json' \
+            --data '{
+            "body": {
+                "content": [
+                {
+                    "content": [
+                    {
+                        "text": "Comment",
+                        "type": "text"
+                    }
+                    ],
+                    "type": "paragraph"
+                }
+                ],
+                "type": "doc",
+                "version": 1
+            }
+            }')
+            echo "$response"
+
+            error_messages=$(echo "$response" | jq -r '.errorMessages[]')
+
+            # Condicional para determinar si hay un error
+            if [ -z "$error_messages" ]; then
+                # No hay error_messages, imprime "Ejecución exitosa"
+                echo "Ejecución exitosa"
+            else
+                # Hay un error_messages, imprime el mensaje
+                echo "Error: $error_messages"
+                exit 1
+            fi
+                    
