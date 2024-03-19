@@ -36,7 +36,6 @@ jobs:
                 "version": 1
             }
             }')
-            echo "$response"
 
             if grep -q '"errorMessages":' <<< "$response"; then
                 error_messages=$(echo "$response" | jq -r '.errorMessages[]')
