@@ -15,7 +15,7 @@ jobs:
             yes | sudo apt-get install jq
 
             response=$(curl --request POST \
-            --url 'https://alrodri.atlassian.net/rest/api/3/issue/AD-2/comment' \
+            --url 'https://alrodri.atlassian.net/rest/api/3/issue/AD-201/comment' \
             --user '${{secrets.USER_JIRA}}:${{secrets.TOKEN_JIRA}}' \
             --header 'Accept: application/json' \
             --header 'Content-Type: application/json' \
